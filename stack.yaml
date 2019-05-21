@@ -5,7 +5,6 @@ packages:
 - mix-plugin-github
 - mix-plugin-drone
 - mix-plugin-shell
-- shh-cmd
 extra-deps:
 - extensible-0.5
 - github-0.21

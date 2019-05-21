@@ -14,8 +14,7 @@ extra-source-files:
 
 dependencies:
 - mix
-- shh
-- shh-cmd
+- shelly
 
 library:
   source-dirs: src

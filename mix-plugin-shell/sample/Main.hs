@@ -12,7 +12,7 @@ import           Data.Extensible
 import           Mix
 import qualified Mix.Plugin.Logger as MixLogger
 import qualified Mix.Plugin.Shell  as MixShell
-import qualified Shh.Command       as Shell
+import qualified Shelly            as Shell
 
 
 type Env = Record
@@ -21,12 +21,12 @@ type Env = Record
    ]
 
 main :: IO ()
-main = Mix.run plugin $ MixShell.exec $ do
-  Shell.pwd
-  Shell.ls [] "."
+main = Mix.run plugin $ do
+  paths <- MixShell.exec $ Shell.ls "."
+  forM_ paths $ MixLogger.logInfo . display . Shell.toTextIgnore
   where
     plugin :: Plugin () IO Env
     plugin = hsequence
         $ #logger <@=> MixLogger.buildPlugin (#handle @= stdout <: #verbose @= True <: nil)
-       <: #work   <@=> pure ".temp"
+       <: #work   <@=> pure "."
        <: nil
