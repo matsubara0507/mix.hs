@@ -7,7 +7,7 @@ this is packages to build [rio package](https://github.com/commercialhaskell/rio
 - mix-json-logger : logging extensible record as json
 - mix-plugin-github : GitHub API client plugin with [github package](https://github.com/phadej/github)
 - mix-plugin-drone : Drone API client plugin with [drone package](https://github.com/matsubara0507/drone-haskell)
-- mix-plugin-shell : Shell plugin with [shh package](https://github.com/luke-clifton/shh) (and shh-cmd)
+- mix-plugin-shell : Shell plugin with [Shelly package](https://github.com/yesodweb/Shelly.hs)
 
 ## example
 
