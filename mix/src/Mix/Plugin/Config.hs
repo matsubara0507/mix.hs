@@ -8,6 +8,7 @@
 module Mix.Plugin.Config
   ( HasConfig (..)
   , buildPlugin
+  , askConfig
   ) where
 
 import           RIO
@@ -23,3 +24,6 @@ class HasConfig c env where
 
 instance Associate "config" c xs => HasConfig c (Record xs) where
   configL = lens (view #config) (\x y -> x & #config `set` y)
+
+askConfig :: HasConfig c env => RIO env c
+askConfig = view configL

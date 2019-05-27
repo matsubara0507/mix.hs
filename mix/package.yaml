@@ -2,7 +2,7 @@ defaults:
   local: ../mix-base.yaml
 
 name:                mix
-version:             0.1.0
+version:             0.1.1
 license:             MIT
 author:              "MATSUBARA Nobutada"
 maintainer:          "t12307043@gunma-u.ac.jp"
