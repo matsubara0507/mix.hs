@@ -10,6 +10,7 @@ module Mix.Plugin.GitHub
   , tokenText
   , auth
   , fetch
+  , GitHub.Token
   ) where
 
 import           RIO
