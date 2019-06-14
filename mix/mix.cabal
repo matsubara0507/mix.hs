@@ -1,0 +1,39 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: eadfa02a29a0fae483c07f1a602c786b433628ee7795b72ba484991dbe30ecc1
+
+name:           mix
+version:        0.1.1
+author:         MATSUBARA Nobutada
+maintainer:     t12307043@gunma-u.ac.jp
+copyright:      2019 MATSUBARA Nobutada
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+library
+  exposed-modules:
+      Mix
+      Mix.Plugin
+      Mix.Plugin.Config
+      Mix.Plugin.Logger
+      Mix.Run
+  other-modules:
+      Paths_mix
+  hs-source-dirs:
+      src
+  default-extensions: NoImplicitPrelude ConstraintKinds FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving OverloadedStrings PolyKinds RankNTypes StandaloneDeriving TypeFamilies TypeSynonymInstances
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , extensible
+    , mtl
+    , rio >=0.1.1.0
+  default-language: Haskell2010
