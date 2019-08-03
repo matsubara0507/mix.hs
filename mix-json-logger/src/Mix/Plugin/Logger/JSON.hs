@@ -31,7 +31,7 @@ mkLogMessage :: Text -> LogLevel -> Record xs -> LogMessage xs
 mkLogMessage msg level r = #message @= msg <: #level @= level <: r
 
 displayJSON ::
-  Forall (KeyValue KnownSymbol (Instance1 ToJSON Identity)) xs
+  Forall (KeyTargetAre KnownSymbol (Instance1 ToJSON Identity)) xs
   => LogMessage xs -> Utf8Builder
 displayJSON = display . encodeToLazyText
 
@@ -40,7 +40,7 @@ logDebugR, logInfoR, logWarnR, logErrorR ::
   , MonadReader env m
   , HasLogFunc env
   , HasCallStack
-  , Forall (KeyValue KnownSymbol (Instance1 ToJSON Identity)) xs
+  , Forall (KeyTargetAre KnownSymbol (Instance1 ToJSON Identity)) xs
   ) => Text -> Record xs -> m ()
 logDebugR msg = logGeneric "" LevelDebug . displayJSON . mkLogMessage msg LevelDebug
 logInfoR  msg = logGeneric "" LevelInfo  . displayJSON . mkLogMessage msg LevelInfo
@@ -52,7 +52,7 @@ logDebugR', logInfoR', logWarnR', logErrorR' ::
   , MonadReader env m
   , HasLogFunc env
   , HasCallStack
-  , Forall (KeyValue KnownSymbol (Instance1 ToJSON Identity)) xs
+  , Forall (KeyTargetAre KnownSymbol (Instance1 ToJSON Identity)) xs
   ) => LogMessage xs -> m ()
 logDebugR' = logGeneric "" LevelDebug . displayJSON
 logInfoR'  = logGeneric "" LevelInfo  . displayJSON

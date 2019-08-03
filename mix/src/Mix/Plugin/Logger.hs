@@ -31,7 +31,7 @@ buildPlugin conf = do
   opts <- logOptionsHandle (conf ^. #handle) (conf ^. #verbose)
   toPlugin $ withLogFunc opts
 
-instance Associate "logger" LogFunc xs => HasLogFunc (Record xs) where
+instance Lookup xs "logger" LogFunc => HasLogFunc (Record xs) where
   logFuncL = lens (view #logger) (\x y -> x & #logger `set` y)
 
 withlines :: MonadIO m => (Utf8Builder -> m ()) -> Utf8Builder -> m ()

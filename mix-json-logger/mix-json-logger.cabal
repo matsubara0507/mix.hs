@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.0.
+-- This file has been generated from package.yaml by hpack version 0.31.2.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a253cc37b1b5c9c5cb239eb91e957c0dfc2f576cf42bffa010736e2a31e09660
+-- hash: df1615f6ee6c041c650c6aed5b24fdbc39dde7f74e507609a7cbb22e7e613d4a
 
 name:           mix-json-logger
 version:        0.1.0
@@ -30,7 +30,7 @@ library
   build-depends:
       aeson
     , base >=4.7 && <5
-    , extensible
+    , extensible >=0.6
     , mix
     , rio >=0.1.1.0
   default-language: Haskell2010
