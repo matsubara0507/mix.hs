@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.0.
+-- This file has been generated from package.yaml by hpack version 0.31.2.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 52710f54e5e4cedd7d954d206c7553c475cf986874af642f91540fc2979c4d78
+-- hash: 39365ed3ac36000d73fd961a880ab40f0decd0c1804a4d4370a13dceed20f28d
 
 name:           mix-plugin-shell
 version:        0.1.0
@@ -29,7 +29,7 @@ library
   ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
-    , extensible
+    , extensible >=0.6
     , mix
     , rio >=0.1.1.0
     , shelly

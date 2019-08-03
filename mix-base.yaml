@@ -17,4 +17,4 @@ default-extensions:
 
 dependencies:
 - rio >= 0.1.1.0
-- extensible
+- extensible >= 0.6

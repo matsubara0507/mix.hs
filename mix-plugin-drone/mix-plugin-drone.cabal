@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: df106535776b5e293868a06bb01de78b332456c34066f80b7eed53039854d82e
+-- hash: a1923bff93d61ef668040f98df4234196090acc1536d6e6fa00e43ffdadd1a44
 
 name:           mix-plugin-drone
 version:        0.1.1
@@ -31,7 +31,7 @@ library
       base >=4.7 && <5
     , data-default-class
     , drone
-    , extensible
+    , extensible >=0.6
     , mix
     , req
     , rio >=0.1.1.0

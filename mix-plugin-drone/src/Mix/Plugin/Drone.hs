@@ -36,7 +36,7 @@ buildPlugin base isHttp =
 class HasDroneClient env where
   clientL :: Lens' env Config
 
-instance Associate "drone" Config xs => HasDroneClient (Record xs) where
+instance Lookup xs "drone" Config => HasDroneClient (Record xs) where
   clientL = lens (view #drone) (\x y -> x & #drone `set` y)
 
 fetch ::

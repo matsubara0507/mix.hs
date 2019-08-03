@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: eadfa02a29a0fae483c07f1a602c786b433628ee7795b72ba484991dbe30ecc1
+-- hash: d1fb86f572d1b94c06b8bc90addc66bdf755b52792d3d62386a6c6a8c2b16977
 
 name:           mix
 version:        0.1.1
@@ -33,7 +33,7 @@ library
   ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
-    , extensible
+    , extensible >=0.6
     , mtl
     , rio >=0.1.1.0
   default-language: Haskell2010

@@ -22,7 +22,7 @@ buildPlugin = pure
 class HasConfig c env where
   configL :: Lens' env c
 
-instance Associate "config" c xs => HasConfig c (Record xs) where
+instance Lookup xs "config" c => HasConfig c (Record xs) where
   configL = lens (view #config) (\x y -> x & #config `set` y)
 
 askConfig :: HasConfig c env => RIO env c

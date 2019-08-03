@@ -28,7 +28,7 @@ buildPlugin path = toPlugin $ \f -> f path
 class HasWorkDir env where
   workL :: Lens' env FilePath
 
-instance Associate "work" FilePath xs => HasWorkDir (Record xs) where
+instance Lookup xs "work" FilePath => HasWorkDir (Record xs) where
   workL = lens (view #work) (\x y -> x & #work `set` y)
 
 workText :: (MonadIO m, MonadReader env m, HasWorkDir env) => m Text
