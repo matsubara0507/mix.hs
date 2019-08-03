@@ -25,7 +25,7 @@ buildPlugin token = toPlugin $ \f -> f token
 class HasGitHubToken env where
   tokenL :: Lens' env GitHub.Token
 
-instance Associate "github" GitHub.Token xs => HasGitHubToken (Record xs) where
+instance Lookup xs "github" GitHub.Token => HasGitHubToken (Record xs) where
   tokenL = lens (view #github) (\x y -> x & #github `set` y)
 
 tokenText :: (MonadIO m, MonadReader env m, HasGitHubToken env) => m Text
