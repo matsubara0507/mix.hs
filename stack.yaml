@@ -1,4 +1,4 @@
-resolver: lts-13.13
+resolver: lts-14.6
 packages:
 - mix
 - mix-json-logger
@@ -6,8 +6,8 @@ packages:
 - mix-plugin-drone
 - mix-plugin-shell
 extra-deps:
-- extensible-0.6
+- extensible-0.6.1
 - membership-0
-- github-0.21
-- github: matsubara0507/drone-haskell
-  commit: aa6f5152dd9ea72cb48a32bdc58c91de2bdc21a9
+- github-0.22
+- binary-instances-1
+- drone-1.0.1
