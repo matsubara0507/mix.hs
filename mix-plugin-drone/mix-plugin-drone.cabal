@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a1923bff93d61ef668040f98df4234196090acc1536d6e6fa00e43ffdadd1a44
+-- hash: af2c2fbcdb324ffd32efb494eaeaf9420a2882db7f14db7f07e18b93de18afa9
 
 name:           mix-plugin-drone
-version:        0.1.1
+version:        0.2.0
 author:         MATSUBARA Nobutada
 maintainer:     t12307043@gunma-u.ac.jp
 copyright:      2019 MATSUBARA Nobutada
@@ -29,10 +29,9 @@ library
   ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
-    , data-default-class
     , drone
     , extensible >=0.6
     , mix
-    , req
+    , req >=2.0
     , rio >=0.1.1.0
   default-language: Haskell2010

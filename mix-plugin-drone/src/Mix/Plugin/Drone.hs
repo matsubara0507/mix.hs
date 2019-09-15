@@ -16,11 +16,10 @@ module Mix.Plugin.Drone
 
 import           RIO
 
-import           Data.Default.Class (def)
 import           Data.Extensible
 import           Drone
-import           Mix.Plugin         (Plugin, toPlugin)
-import           Network.HTTP.Req   (Req, runReq)
+import           Mix.Plugin       (Plugin, toPlugin)
+import           Network.HTTP.Req (Req, defaultHttpConfig, runReq)
 
 newtype Config = Config ConfigR
 
@@ -47,6 +46,6 @@ fetch ::
 fetch req = do
   (Config config) <- view clientL
   if config ^. #is_http then
-    runReq def $ req (Drone.HttpClient $ config ^. #base)
+    runReq defaultHttpConfig $ req (Drone.HttpClient $ config ^. #base)
   else
-    runReq def $ req (Drone.HttpsClient $ config ^. #base)
+    runReq defaultHttpConfig $ req (Drone.HttpsClient $ config ^. #base)
