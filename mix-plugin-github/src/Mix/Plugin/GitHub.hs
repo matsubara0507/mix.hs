@@ -10,7 +10,7 @@ module Mix.Plugin.GitHub
   , tokenText
   , auth
   , fetch
-  , GitHub.Token
+  , Token
   ) where
 
 import           RIO
@@ -19,13 +19,15 @@ import           Data.Extensible
 import qualified GitHub.Auth     as GitHub
 import           Mix.Plugin      (Plugin, toPlugin)
 
-buildPlugin ::  MonadIO m => GitHub.Token -> Plugin a m GitHub.Token
+type Token = ByteString
+
+buildPlugin ::  MonadIO m => Token -> Plugin a m Token
 buildPlugin token = toPlugin $ \f -> f token
 
 class HasGitHubToken env where
-  tokenL :: Lens' env GitHub.Token
+  tokenL :: Lens' env Token
 
-instance Lookup xs "github" GitHub.Token => HasGitHubToken (Record xs) where
+instance Lookup xs "github" Token => HasGitHubToken (Record xs) where
   tokenL = lens (view #github) (\x y -> x & #github `set` y)
 
 tokenText :: (MonadIO m, MonadReader env m, HasGitHubToken env) => m Text

@@ -2,7 +2,7 @@ defaults:
   local: ../mix-base.yaml
 
 name:                mix-plugin-drone
-version:             0.1.1
+version:             0.2.0
 license:             MIT
 author:              "MATSUBARA Nobutada"
 maintainer:          "t12307043@gunma-u.ac.jp"
@@ -15,8 +15,7 @@ extra-source-files:
 dependencies:
 - mix
 - drone
-- data-default-class
-- req
+- req >= 2.0
 
 library:
   source-dirs: src
