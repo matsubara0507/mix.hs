@@ -1,10 +1,12 @@
 resolver: lts-15.5
 packages:
 - mix
+- helper/rio-logger-ext
 - mix-json-logger
 - mix-plugin-github
 - mix-plugin-drone
 - mix-plugin-shell
+- mix-plugin-persistent-sqlite
 extra-deps:
 - extensible-0.8
 - membership-0
