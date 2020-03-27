@@ -14,7 +14,7 @@ extra-source-files:
 
 dependencies:
 - mix
-- github
+- github >= 0.24
 
 library:
   source-dirs: src
