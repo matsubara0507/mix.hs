@@ -23,6 +23,8 @@ jobs:
     - uses: matsubara0507/setup-stack@master
     - name: Install dependencies
       run: stack build --only-dependencies
+    - name: Build packages
+      run: stack build
     - name: Exec sample codes
       run: find */sample/Main.hs | xargs stack runghc
       env:
