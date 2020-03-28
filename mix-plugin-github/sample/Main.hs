@@ -34,7 +34,7 @@ main = do
 app :: RIO Env ()
 app = do
   MixLogger.logInfo "fetch GitHub user info:"
-  resp <- MixGitHub.fetch GitHub.userInfoCurrent'
+  resp <- MixGitHub.fetch GitHub.userInfoCurrentR
   case resp of
     Left err   -> logError "GitHub fetch error...."
     Right user -> logInfo $ display ("Hi " <> toLogin user <> "!!")

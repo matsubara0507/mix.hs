@@ -16,8 +16,10 @@ module Mix.Plugin.GitHub
 import           RIO
 
 import           Data.Extensible
-import qualified GitHub.Auth     as GitHub
-import           Mix.Plugin      (Plugin, toPlugin)
+import qualified GitHub.Auth             as GitHub
+import qualified GitHub.Data.Definitions as GitHub
+import           GitHub.Request          (GenRequest, ParseResponse, github)
+import           Mix.Plugin              (Plugin, toPlugin)
 
 type Token = ByteString
 
@@ -36,5 +38,7 @@ tokenText = decodeUtf8With lenientDecode <$> view tokenL
 auth :: (MonadIO m, MonadReader env m, HasGitHubToken env) => m GitHub.Auth
 auth = GitHub.OAuth <$> view tokenL
 
-fetch :: (MonadIO m, MonadReader env m, HasGitHubToken env) => (GitHub.Auth -> IO a) -> m a
-fetch act = (liftIO . act) =<< auth
+fetch
+  :: (MonadIO m, MonadReader env m, HasGitHubToken env, ParseResponse mt a)
+  => GenRequest mt rw a -> m (Either GitHub.Error a)
+fetch req = (liftIO . flip github req) =<< auth

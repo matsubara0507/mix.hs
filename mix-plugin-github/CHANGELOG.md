@@ -2,6 +2,10 @@
 
 ## Unreleased changes
 
+## 0.2.0
+
+- Misc: update with github-0.24
+
 ### 0.1.2
 
 - Fix: `Token` for github-0.22

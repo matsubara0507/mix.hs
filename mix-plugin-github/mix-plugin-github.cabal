@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: cc45ddd343bff1ee33131b52f89285656e19cebbbfc128b77fed6ab21a7737d1
+-- hash: 9a11b87066e91dbe90549ddb6f9b2afdf9c5bb5656f2510a19cc175b8ef1018a
 
 name:           mix-plugin-github
-version:        0.1.2
+version:        0.2.0
 author:         MATSUBARA Nobutada
 maintainer:     t12307043@gunma-u.ac.jp
 copyright:      2019 MATSUBARA Nobutada
@@ -30,7 +30,7 @@ library
   build-depends:
       base >=4.7 && <5
     , extensible >=0.6
-    , github
+    , github >=0.24
     , mix
     , rio >=0.1.1.0
   default-language: Haskell2010
