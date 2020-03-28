@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 70eca15fbd2b89d6b3b8ad861068318e90f7f828fbd24fc6a0671737e9dfcd28
+-- hash: 9a11b87066e91dbe90549ddb6f9b2afdf9c5bb5656f2510a19cc175b8ef1018a
 
 name:           mix-plugin-github
-version:        0.1.2
+version:        0.2.0
 author:         MATSUBARA Nobutada
 maintainer:     t12307043@gunma-u.ac.jp
 copyright:      2019 MATSUBARA Nobutada
