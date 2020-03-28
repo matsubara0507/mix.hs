@@ -10,9 +10,6 @@ jobs:
   build:
     name: Execute each sample codes
     runs-on: ubuntu-18.04
-    strategy:
-      matrix:
-        cache-version: 1
     steps:
     - uses: actions/checkout@v2
     - name: Cache .stack
@@ -20,7 +17,7 @@ jobs:
       uses: actions/cache@v1.1.2
       with:
         path: ~/.stack
-        key: ${{ runner.os }}-stack-${{ hashFiles('./stack.yaml') }}-${{ matrix.cache-version }}
+        key: ${{ runner.os }}-stack-${{ hashFiles('./stack.yaml') }}-1
         restore-keys: |
           ${{ runner.os }}-stack-
     - uses: matsubara0507/setup-stack@master
