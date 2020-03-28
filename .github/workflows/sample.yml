@@ -26,8 +26,9 @@ jobs:
     - name: Build packages
       run: stack build
     - name: Exec sample codes
-      run: find */sample/Main.hs | xargs -I{} stack runghc {}
+      run: find */sample/Main.hs | xargs -I{} stack runghc --package persistent-template {}
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         DRONE_HOST: ${{ secrets.DRONE_HOST }}
         DRONE_TOKEN: ${{ secrets.DRONE_TOKEN }}
+        SQLITE_PATH: ./tmp.sqlite
