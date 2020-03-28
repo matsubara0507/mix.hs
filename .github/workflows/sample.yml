@@ -1,0 +1,33 @@
+name: Execute Sample
+
+on:
+  pull_request: null
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    name: Execute each sample codes
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Cache .stack
+      id: cache-stack
+      uses: actions/cache@v1.1.2
+      with:
+        path: ~/.stack
+        key: ${{ runner.os }}-stack-${{ hashFiles('**/stack.yaml') }}-1
+        restore-keys: |
+          ${{ runner.os }}-stack-
+    - uses: matsubara0507/setup-stack@master
+    - name: Install dependencies
+      run: stack build --only-dependencies
+    - name: Build packages
+      run: stack build
+    - name: Exec sample codes
+      run: find */sample/Main.hs | xargs -I{} stack runghc {}
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DRONE_HOST: ${{ secrets.DRONE_HOST }}
+        DRONE_TOKEN: ${{ secrets.DRONE_TOKEN }}
