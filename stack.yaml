@@ -10,6 +10,4 @@ extra-deps:
 - membership-0
 - github-0.25
 - binary-instances-1.0.0.1
-# - drone-1.0.1
-- github: matsubara0507/drone-haskell
-  commit: 8aeac121894a8134e5c070d8507f78a50e15cfcd
+- drone-1.1.0
