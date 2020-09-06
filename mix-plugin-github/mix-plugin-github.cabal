@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.2.
+-- This file has been generated from package.yaml by hpack version 0.33.0.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 9a11b87066e91dbe90549ddb6f9b2afdf9c5bb5656f2510a19cc175b8ef1018a
+-- hash: 471685a9e8a0a7419e9ae69b0ffc2c060b7e6dac1ea473f14d934af2e5194b5e
 
 name:           mix-plugin-github
 version:        0.2.0
@@ -21,6 +21,7 @@ extra-source-files:
 library
   exposed-modules:
       Mix.Plugin.GitHub
+      Mix.Plugin.GitHub.GraphQL
   other-modules:
       Paths_mix_plugin_github
   hs-source-dirs:
@@ -28,9 +29,11 @@ library
   default-extensions: NoImplicitPrelude ConstraintKinds FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving OverloadedStrings PolyKinds RankNTypes StandaloneDeriving TypeFamilies TypeSynonymInstances
   ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
     , extensible >=0.6
     , github >=0.24
     , mix
+    , req >=2.0
     , rio >=0.1.1.0
   default-language: Haskell2010

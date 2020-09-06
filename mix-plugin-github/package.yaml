@@ -14,7 +14,9 @@ extra-source-files:
 
 dependencies:
 - mix
+- aeson
 - github >= 0.24
+- req >= 2.0
 
 library:
   source-dirs: src
