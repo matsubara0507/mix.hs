@@ -24,7 +24,7 @@ fetch query = do
     r <- req POST url
       (ReqBodyJson $ #query @== query <: nil)
       jsonResponse
-      (oAuth2Bearer token)
+      (oAuth2Bearer token <> header "User-Agent" "mix.hs plugin github with req")
     pure $ responseBody r
   where
     url = https "api.github.com" /: "graphql"
