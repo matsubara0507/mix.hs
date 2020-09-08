@@ -7,6 +7,7 @@ packages:
 - mix-plugin-drone
 - mix-plugin-shell
 - mix-plugin-persistent-sqlite
+- mix-plugin-xdgcache
 extra-deps:
 - extensible-0.8
 - membership-0
