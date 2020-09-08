@@ -9,8 +9,11 @@ module Mix.Plugin.XdgCache
   , buildPlugin
   , HasXdgCacheConfig (..)
   , getCacheDirectory
-  , readCacheByName
-  , writeCacheToName
+  , readCache
+  , writeCache
+  , expireCache
+  , XdgCacheable
+  , withCacheOn
   ) where
 
 import           RIO
@@ -38,21 +41,50 @@ getCacheDirectory ::
   ) => m FilePath
 getCacheDirectory = getXdgDirectory XdgCache =<< view configL
 
-readCacheByName ::
+readCache ::
   ( MonadIO m
   , MonadReader env m
   , HasXdgCacheConfig env
   ) => FilePath -> m Text
-readCacheByName filename = do
+readCache filename = do
   cacheDir <- getCacheDirectory
   readFileUtf8 (cacheDir </> filename)
 
-writeCacheToName ::
+writeCache ::
   ( MonadIO m
   , MonadReader env m
   , HasXdgCacheConfig env
   ) => FilePath -> Text -> m ()
-writeCacheToName filename body = do
+writeCache filename body = do
   cacheDir <- getCacheDirectory
   createDirectoryIfMissing True cacheDir
   writeFileUtf8 (cacheDir </> filename) body
+
+expireCache ::
+  ( MonadIO m
+  , MonadReader env m
+  , HasXdgCacheConfig env
+  ) => FilePath -> m ()
+expireCache name = do
+  cacheName <- (</> name) <$> getCacheDirectory
+  whenM (doesFileExist $ cacheName) $ removeFile cacheName
+
+class XdgCacheable a where
+  toCache :: a -> Text
+  fromCache :: Text -> a
+
+withCacheOn ::
+  ( MonadIO m
+  , MonadReader env m
+  , HasXdgCacheConfig env
+  , XdgCacheable a
+  ) => m a -> FilePath -> m a
+withCacheOn act name = do
+  cacheDir <- getCacheDirectory
+  isExist  <- doesFileExist (cacheDir </> name)
+  if isExist then
+    fromCache <$> readCache name
+  else do
+    result <- act
+    writeCache name (toCache result)
+    pure result
