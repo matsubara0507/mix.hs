@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: db6b22a0775c5eac3e0388ea1c3fa5304be4ef6af218824328a53238d91434ab
+-- hash: ec2a462d6bc01c6cd216ba68160b59686dffe204eae7c32a2b0fe2ab3874c43c
 
 name:           mix-plugin-xdgcache
 version:        0.1.0
@@ -27,7 +27,8 @@ library
   default-extensions: NoImplicitPrelude ConstraintKinds FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving OverloadedStrings PolyKinds RankNTypes StandaloneDeriving TypeFamilies TypeSynonymInstances
   ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
     , extensible >=0.6
     , mix
     , rio >=0.1.1.0

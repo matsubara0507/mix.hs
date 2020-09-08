@@ -12,14 +12,16 @@ module Mix.Plugin.XdgCache
   , readCache
   , writeCache
   , expireCache
-  , XdgCacheable
   , withCacheOn
+  , JsonParseError (..)
   ) where
 
 import           RIO
 import           RIO.Directory
 import           RIO.FilePath
 
+import           Data.Aeson      (FromJSON, ToJSON)
+import qualified Data.Aeson      as JSON
 import           Data.Extensible
 import           Mix.Plugin      (Plugin, toPlugin)
 
@@ -45,20 +47,20 @@ readCache ::
   ( MonadIO m
   , MonadReader env m
   , HasXdgCacheConfig env
-  ) => FilePath -> m Text
+  ) => FilePath -> m ByteString
 readCache filename = do
   cacheDir <- getCacheDirectory
-  readFileUtf8 (cacheDir </> filename)
+  readFileBinary (cacheDir </> filename)
 
 writeCache ::
   ( MonadIO m
   , MonadReader env m
   , HasXdgCacheConfig env
-  ) => FilePath -> Text -> m ()
+  ) => FilePath -> ByteString -> m ()
 writeCache filename body = do
   cacheDir <- getCacheDirectory
   createDirectoryIfMissing True cacheDir
-  writeFileUtf8 (cacheDir </> filename) body
+  writeFileBinary (cacheDir </> filename) body
 
 expireCache ::
   ( MonadIO m
@@ -69,22 +71,27 @@ expireCache name = do
   cacheName <- (</> name) <$> getCacheDirectory
   whenM (doesFileExist $ cacheName) $ removeFile cacheName
 
-class XdgCacheable a where
-  toCache :: a -> Text
-  fromCache :: Text -> a
-
 withCacheOn ::
   ( MonadIO m
   , MonadReader env m
   , HasXdgCacheConfig env
-  , XdgCacheable a
+  , FromJSON a
+  , ToJSON a
   ) => m a -> FilePath -> m a
 withCacheOn act name = do
   cacheDir <- getCacheDirectory
   isExist  <- doesFileExist (cacheDir </> name)
-  if isExist then
-    fromCache <$> readCache name
+  if isExist then do
+    result <- JSON.eitherDecodeStrict <$> readCache name
+    case result of
+      Left e  -> throwIO (JsonParseError e)
+      Right a -> pure a
   else do
+    createDirectoryIfMissing True cacheDir
     result <- act
-    writeCache name (toCache result)
+    liftIO $ JSON.encodeFile (cacheDir </> name) result
     pure result
+
+newtype JsonParseError = JsonParseError String deriving Show
+
+instance Exception JsonParseError
