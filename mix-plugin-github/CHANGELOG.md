@@ -2,6 +2,10 @@
 
 ## Unreleased changes
 
+## 0.3.0
+
+- Feat: `fetch` function for GitHub GraphQL API
+
 ## 0.2.0
 
 - Misc: update with github-0.24

@@ -2,7 +2,7 @@ defaults:
   local: ../mix-base.yaml
 
 name:                mix-plugin-github
-version:             0.2.0
+version:             0.3.0
 license:             MIT
 author:              "MATSUBARA Nobutada"
 maintainer:          "t12307043@gunma-u.ac.jp"
@@ -14,7 +14,9 @@ extra-source-files:
 
 dependencies:
 - mix
+- aeson
 - github >= 0.24
+- req >= 2.0
 
 library:
   source-dirs: src
