@@ -1,0 +1,35 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: ec2a462d6bc01c6cd216ba68160b59686dffe204eae7c32a2b0fe2ab3874c43c
+
+name:           mix-plugin-xdgcache
+version:        0.1.0
+author:         MATSUBARA Nobutada
+maintainer:     t12307043@gunma-u.ac.jp
+copyright:      2019 MATSUBARA Nobutada
+license:        MIT
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+library
+  exposed-modules:
+      Mix.Plugin.XdgCache
+  other-modules:
+      Paths_mix_plugin_xdgcache
+  hs-source-dirs:
+      src
+  default-extensions: NoImplicitPrelude ConstraintKinds FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving OverloadedStrings PolyKinds RankNTypes StandaloneDeriving TypeFamilies TypeSynonymInstances
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , extensible >=0.6
+    , mix
+    , rio >=0.1.1.0
+  default-language: Haskell2010

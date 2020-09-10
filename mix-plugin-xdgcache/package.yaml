@@ -1,0 +1,20 @@
+defaults:
+  local: ../mix-base.yaml
+
+name:                mix-plugin-xdgcache
+version:             0.1.0
+license:             MIT
+author:              "MATSUBARA Nobutada"
+maintainer:          "t12307043@gunma-u.ac.jp"
+copyright:           "2019 MATSUBARA Nobutada"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+dependencies:
+- mix
+- aeson
+
+library:
+  source-dirs: src
