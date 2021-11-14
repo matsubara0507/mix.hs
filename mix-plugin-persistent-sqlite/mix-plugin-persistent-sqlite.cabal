@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.2.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 4e5f69d6bef14aa3bb6b639a75967bbce8151917fb42d06e7c33557cc1f794e5
+-- hash: 914059b975f8b15bf2c7515091a03b5f5507d0ee7a55add8bfe3972d7c0adbfb
 
 name:           mix-plugin-persistent-sqlite
 version:        0.1.0
@@ -24,7 +24,18 @@ library
       Paths_mix_plugin_persistent_sqlite
   hs-source-dirs:
       src
-  default-extensions: NoImplicitPrelude ConstraintKinds FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving OverloadedStrings PolyKinds RankNTypes StandaloneDeriving TypeFamilies TypeSynonymInstances
+  default-extensions:
+      NoImplicitPrelude
+      ConstraintKinds
+      FlexibleContexts
+      FlexibleInstances
+      GeneralizedNewtypeDeriving
+      OverloadedStrings
+      PolyKinds
+      RankNTypes
+      StandaloneDeriving
+      TypeFamilies
+      TypeSynonymInstances
   ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
