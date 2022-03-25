@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.2.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 39365ed3ac36000d73fd961a880ab40f0decd0c1804a4d4370a13dceed20f28d
+-- hash: 5d2c3d9dfcc5de1a613d48f854f39c45b434873f74afd3ce557582234dda840e
 
 name:           mix-plugin-shell
 version:        0.1.0
@@ -25,7 +25,18 @@ library
       Paths_mix_plugin_shell
   hs-source-dirs:
       src
-  default-extensions: NoImplicitPrelude ConstraintKinds FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving OverloadedStrings PolyKinds RankNTypes StandaloneDeriving TypeFamilies TypeSynonymInstances
+  default-extensions:
+      NoImplicitPrelude
+      ConstraintKinds
+      FlexibleContexts
+      FlexibleInstances
+      GeneralizedNewtypeDeriving
+      OverloadedStrings
+      PolyKinds
+      RankNTypes
+      StandaloneDeriving
+      TypeFamilies
+      TypeSynonymInstances
   ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
   build-depends:
       base >=4.7 && <5

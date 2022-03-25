@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.2.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: df1615f6ee6c041c650c6aed5b24fdbc39dde7f74e507609a7cbb22e7e613d4a
+-- hash: 1349b2c7fc8c8fc22fb2f5589183740fda5902f266eb1d062fb4227ae8f62cd5
 
 name:           mix-json-logger
 version:        0.1.0
@@ -25,7 +25,18 @@ library
       Paths_mix_json_logger
   hs-source-dirs:
       src
-  default-extensions: NoImplicitPrelude ConstraintKinds FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving OverloadedStrings PolyKinds RankNTypes StandaloneDeriving TypeFamilies TypeSynonymInstances
+  default-extensions:
+      NoImplicitPrelude
+      ConstraintKinds
+      FlexibleContexts
+      FlexibleInstances
+      GeneralizedNewtypeDeriving
+      OverloadedStrings
+      PolyKinds
+      RankNTypes
+      StandaloneDeriving
+      TypeFamilies
+      TypeSynonymInstances
   ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
   build-depends:
       aeson

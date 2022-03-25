@@ -1,4 +1,4 @@
-resolver: lts-15.5
+resolver: lts-18.16
 packages:
 - mix
 - helper/rio-logger-ext
@@ -9,8 +9,9 @@ packages:
 - mix-plugin-persistent-sqlite
 - mix-plugin-xdgcache
 extra-deps:
-- extensible-0.8
-- membership-0
-- github-0.25
-- binary-instances-1.0.0.1
+- extensible-0.8.2
+- membership-0.0.1
+- incremental-0.3.1
+- github-0.27
+- binary-instances-1.0.2
 - drone-1.1.0

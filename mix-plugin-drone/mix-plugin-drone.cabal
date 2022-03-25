@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.2.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: af2c2fbcdb324ffd32efb494eaeaf9420a2882db7f14db7f07e18b93de18afa9
+-- hash: b4d46c8842023aad1d06ff027f022ed6fffe3245f7b649fedb2ea35925dc297e
 
 name:           mix-plugin-drone
 version:        0.2.0
@@ -25,7 +25,18 @@ library
       Paths_mix_plugin_drone
   hs-source-dirs:
       src
-  default-extensions: NoImplicitPrelude ConstraintKinds FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving OverloadedStrings PolyKinds RankNTypes StandaloneDeriving TypeFamilies TypeSynonymInstances
+  default-extensions:
+      NoImplicitPrelude
+      ConstraintKinds
+      FlexibleContexts
+      FlexibleInstances
+      GeneralizedNewtypeDeriving
+      OverloadedStrings
+      PolyKinds
+      RankNTypes
+      StandaloneDeriving
+      TypeFamilies
+      TypeSynonymInstances
   ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
   build-depends:
       base >=4.7 && <5

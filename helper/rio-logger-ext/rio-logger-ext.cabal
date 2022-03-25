@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.2.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 7f2bc65a43a7e5969340bac12ae598048b74a12fce7a03135e56abdc6d2fd4f6
+-- hash: cf9227968bac70eb4d8c77574ad802e263da4c6e390beaa1b77a0e4b7794b399
 
 name:           rio-logger-ext
 version:        0.1.0
@@ -24,7 +24,8 @@ library
       Paths_rio_logger_ext
   hs-source-dirs:
       src
-  default-extensions: NoImplicitPrelude
+  default-extensions:
+      NoImplicitPrelude
   ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
