@@ -1,4 +1,4 @@
-resolver: lts-18.16
+resolver: lts-19.0
 packages:
 - mix
 - helper/rio-logger-ext
@@ -9,7 +9,7 @@ packages:
 - mix-plugin-persistent-sqlite
 - mix-plugin-xdgcache
 extra-deps:
-- extensible-0.8.2
+- extensible-0.8.3
 - membership-0.0.1
 - incremental-0.3.1
 - github-0.27
