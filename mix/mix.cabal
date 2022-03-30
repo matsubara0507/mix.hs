@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 37dc8d2b8dec18c7cb3073fc3926b7ea4608c03f2f655dbf7cd9bd548f6b5285
+-- hash: 9ca07f6b6332039642b537c364ccca9639a45cecfca07c86829c5ec97e204592
 
 name:           mix
 version:        0.1.1
@@ -24,6 +24,7 @@ library
       Mix.Plugin
       Mix.Plugin.Config
       Mix.Plugin.Logger
+      Mix.Plugin.Process
       Mix.Run
   other-modules:
       Paths_mix
